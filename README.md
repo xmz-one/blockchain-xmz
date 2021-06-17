@@ -18,7 +18,7 @@ In the decentralized system, Relation Network designed the DAO governance protoc
 Relation Network—XMZ is based on Java's latest spring-boot architecture, you can choose your favorite operating system.
 <h2>2.rely</h2>
 JDK：JDK 1.8<br>
-Maven：Maven 3.3+
+Maven：Maven 3.3+<br>
 IDE：Whatever you like
 <h2>3.Technology Architecture</h2>
 1.spring-boot 2.5.0<br>
