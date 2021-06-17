@@ -1,36 +1,36 @@
-<h1>一. 介绍</h1>
+<h1>一. Introduction</h1>
 
-Relation Network 简称(XMZ) 是一个去中心化多链组织设计结构，集合区块链高性能价值传输协同网络应用系统，它融合了多种不同公链的区块链设计，它的作用是将现在各自独立的区块链进行连接，通过 Relation Network网络实现不同区块链之间交互，可进行通信和数据的传递，并设计DAO组织协议网络协同提案，是一个高度可定制模块化的区块链基础设施，它由微内核和功能模块组成，Relation Network—XMZ 我们将提供智能合约,多链机制和跨链组织架构，打破区块链技术壁垒，降低开发成本，促进区块链技术在商业领域的应用。<br>
-Relation Network 是目前第一个也是唯一的跨链 DAO 协议，让不同区块链生态系统中的用户、代币和 DApp （去中心化应用程序））可以互相进行交互，Relation Network网络为在区块链上的开发组织提供解决争端并充当管理机构的框架。
-<h1>二. 项目特色</h1>
-<h2>1.模块化设计</h2>
-在区块链世界中的绿色设计方案，就是模块化设计的旨意，通过不同功能开发属性来降低它的成本，同时满足功能属性和环境属性，为市场需求提供产品研发周期维护和降维处理。
-<h2>2.平行链</h2>
-Relation Network的平行链模型通过Staking共识机制，引入高性能安全网络传输，来校正，解决它的安全性、可伸缩性、互操作性和治理协同网络的平行世界。
-<h2>3.智能合约</h2>
-Relation Network是一个由点对点网络节点组成的系统，可创建分散式存储和通信服务， 通过Relation Network网络嵌入智能合约进行执行内置激励方案，让Relation Network系统在特定经济治理模型中可以自我维护高效运行。
-<h2>4.Relation Network 共识机制</h2>
-我们将采用POS，DPOS，CBFT混合共识机制，来治理在Relation Network系统中的经济模型组织架构，通过工作量证明和权益证明双重机制，解决加密货币在发行过程中的选举方案，选举系统中网络稳定性和算法精确性优缺生产治理问题。
-<h2>5. DAO协同网络</h2>
-在去中心化系统中Relation Network设计了DAO治理协议，使得系统生态打造组织治理过程中的，共识构建和组织贡献提供，开放，共治，共享，共建，共创的组织理念为不同区块链项目进行高赋能，高并发，高治理，来呈现它的核心协作网络的治理。
-<h1>三. 入门</h1>
-<h2>1.操作系统</h2>
-Relation Network—XMZ基于Java最新的spring-boot架构，您可以选择自己喜欢的操作系统。
-<h2>2.依赖</h2>
+Relation Network abbreviation (XMZ) is a decentralized multi-chain organization design structure that integrates blockchain high-performance value transmission collaborative network application system. It combines the blockchain design of a variety of different public chains. Its role is to transform the current Each independent block chain is connected, through the Relation Network network to realize the interaction between different block chains, communication and data transmission can be carried out, and the DAO organization protocol network collaborative proposal is designed, which is a highly customizable and modular block chain Infrastructure, which is composed of microkernels and functional modules, Relation Network—XMZ We will provide smart contracts, multi-chain mechanisms and cross-chain organizational structures to break the barriers of blockchain technology, reduce development costs, and promote blockchain technology in the commercial field Applications.<br>
+Relation Network is currently the first and only cross-chain DAO protocol that allows users, tokens and DApps (decentralized applications) in different blockchain ecosystems to interact with each other. The Relation Network network is in the block The development organization on the chain provides a framework for resolving disputes and acting as a management agency.
+<h1>二. Program features</h1>
+<h2>1.Modular design</h2>
+The green design scheme in the blockchain world is the purpose of modular design, which reduces its cost through different functional development attributes, while meeting functional and environmental attributes, and provides product development cycle maintenance and dimensionality reduction processing for market needs.
+<h2>2.Parachain</h2>
+Relation Network's parachain model introduces high-performance secure network transmission through the Staking consensus mechanism to correct and solve its security, scalability, interoperability and parallel world of governance collaborative networks.
+<h2>3.Smart contract</h2>
+Relation Network is a system composed of peer-to-peer network nodes, which can create distributed storage and communication services, and implement built-in incentive schemes through the embedded smart contract of the Relation Network network, so that the Relation Network system can self-maintain and operate efficiently in a specific economic governance model.
+<h2>4.Relation Network consensus mechanism</h2>
+We will adopt a hybrid consensus mechanism of POS, DPOS, and CBFT to govern the economic model organization structure in the Relation Network system. Through the dual mechanism of proof of work and proof of rights and interests, we will solve the election plan of cryptocurrency in the issuance process and the network in the election system. Stability and algorithm accuracy are superior to production governance issues.
+<h2>5. DAO Collaborative Network</h2>
+In the decentralized system, Relation Network designed the DAO governance protocol, so that in the process of organizational governance of the system ecology, consensus building and organizational contribution provision, openness, co-governance, sharing, co-construction, and co-creation are organized into different blocks. The chain project carries out high empowerment, high concurrency, and high governance to present the governance of its core collaboration network.
+<h1>三. getting Started</h1>
+<h2>1.operating system</h2>
+Relation Network—XMZ is based on Java's latest spring-boot architecture, you can choose your favorite operating system.
+<h2>2.rely</h2>
 JDK：JDK 1.8<br>
 Maven：Maven 3.3+
-IDE：任何你喜欢的
-<h2>3.技术架构</h2>
+IDE：Whatever you like
+<h2>3.Technology Architecture</h2>
 1.spring-boot 2.5.0<br>
 2.RocksDB 6.8.1<br>
 3.httpclient 4.5.3<br>
 4.kryo 4.0.1<br>
 5.guava 20.0<br>
 6.bcprov-jdk15on 1.59
-<h1>四. 技术讲解</h1>
-1.SpringBoot基于Spring4.0设计，不仅继承了Spring框架原有的优秀特性，而且还通过简化配置来进一步简化了Spring应用的整个搭建和开发过程。另外SpringBoot通过集成大量的框架使得依赖包的版本冲突，以及引用的不稳定性等问题得到了很好的解决。<br>
-2.RocksDB 是一个来自 facebook 的可嵌入式的支持持久化的 key-value 存储系统，也可作为 C/S 模式下的存储数据库，但主要目的还是嵌入式。RocksDB 基于 LevelDB 构建。<br>
-3.HttpClient 是Apache Jakarta Common 下的子项目，可以用来提供高效的、最新的、功能丰富的支持 HTTP 协议的客户端编程工具包  <br>
-4.kryo是一个高性能的序列化/反序列化工具，由于其变长存储特性并使用了字节码生成机制，拥有较高的运行速度和较小的体积。  <br>
-5.Guava是一种基于开源的Java库，Google Guava源于2007年的"Google Collections Library"。这个库是为了方便编码，并减少编码错误。这个库用于提供集合，缓存，支持原语句，并发性，常见注解，字符串处理，I/O和验证的实用方法。  <br>
-6.,bcprov-jdk15on是,SM2加密必要加密工具包。
+<h1>四. Technical explanation</h1>
+1.SpringBoot is designed based on Spring 4.0, which not only inherits the original excellent features of the Spring framework, but also further simplifies the entire construction and development process of Spring applications by simplifying the configuration. In addition, SpringBoot integrates a large number of frameworks so that the version conflicts of dependent packages and the instability of references have been well resolved.<br>
+2.RocksDB is an embedded key-value storage system from Facebook that supports persistence. It can also be used as a storage database in C/S mode, but the main purpose is still embedded. RocksDB is built on LevelDB。<br>
+3.HttpClient is a sub-project of Apache Jakarta Common, which can be used to provide an efficient, up-to-date and feature-rich client programming toolkit that supports the HTTP protocol  <br>
+4.Kryo is a high-performance serialization/deserialization tool. Due to its variable-length storage characteristics and the use of a bytecode generation mechanism, it has a higher operating speed and a smaller size.  <br>
+5.Guava is a Java library based on open source. Google Guava originated from "Google Collections Library" in 2007. This library is to facilitate coding and reduce coding errors. This library is used to provide practical methods for collections, caching, support for original statements, concurrency, common annotations, string processing, I/O and verification.  <br>
+6.bcprov-jdk15on is a necessary encryption toolkit for SM2 encryption.
