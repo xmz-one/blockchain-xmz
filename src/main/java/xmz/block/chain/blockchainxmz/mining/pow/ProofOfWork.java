@@ -17,7 +17,7 @@ public class ProofOfWork {
     /**
      * 难度目标位, target=24 时大约 30 秒出一个区块
      */
-    public static int TARGET_BITS = 16;
+    public static int TARGET_BITS = 24;
 
     public static void updateTargetBits() {
         Random rand = new Random();
@@ -93,7 +93,6 @@ public class ProofOfWork {
             String prevHash = Numeric.cleanHexPrefix(this.getBlock().getHeader().getPreviousHash());
             prevBlockHashBytes = new BigInteger(prevHash, 16).toByteArray();
         }
-
         return ByteUtils.merge(
                 prevBlockHashBytes,
                 ByteUtils.toBytes(this.getBlock().getHeader().getTimestamp()),

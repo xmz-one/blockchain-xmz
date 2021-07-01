@@ -11,6 +11,7 @@ import xmz.block.chain.blockchainxmz.calculation.CalculationService;
 import xmz.block.chain.blockchainxmz.common.crypto.Keys;
 import xmz.block.chain.blockchainxmz.common.crypto.Sign;
 import xmz.block.chain.blockchainxmz.common.enums.TransactionStatusEnum;
+import xmz.block.chain.blockchainxmz.common.utils.Numeric;
 import xmz.block.chain.blockchainxmz.config.XMZConfig;
 import xmz.block.chain.blockchainxmz.dbs.BlockDBs;
 import xmz.block.chain.blockchainxmz.dbs.TransactionDBs;
@@ -43,7 +44,7 @@ public class TransactionExecutor {
      *
      * @param blockPO
      */
-    public void run(BlockPO blockPO) throws Exception {
+    public void runs(BlockPO blockPO) throws Exception {
         BigDecimal rate=BigDecimal.ZERO;
         long transactionIndex=0;
         for (TransactionPO transaction : blockPO.getBody().getTransactions()) {
@@ -66,7 +67,7 @@ public class TransactionExecutor {
             }
             Optional<AccountPO> sender = accountDB.getAccount(transaction.getFrom());
             boolean verify = Sign.verify(
-                    Keys.publicKeyDecode(transaction.getPublicKey()),
+                    Numeric.hexStringToByteArray(XMZConfig.SIGNATURE_VERIFICATION_VECTOR + transaction.getPublicKey()),
                     transaction.getSign(),
                     transaction.toSignString());
             if (!verify) {
@@ -97,13 +98,18 @@ public class TransactionExecutor {
         accountDB.putAccount(recipient.get());
         blockPO.getHeader().setRate(rate);
         blockPO.getHeader().setTransactions(blockPO.getBody().getTransactions().size());
-        blockDB.putBlockLast(blockPO);
+        //在创建线程的方式下无法使用
+//        blockDB.putBlockLast(blockPO);
         blockDB.putBlockTxIndex(blockPO);
         calculation(blockPO);
         logger.info("Find a update Block, {}", blockPO);
     }
 
 
+    /**
+     * 进行订单各类数据统计
+     * @param blockPO
+     */
     public void calculation(BlockPO blockPO){
         XMZConfig.TRANSACTION_RATE=XMZConfig.TRANSACTION_LOW_RATE.add(XMZConfig.TRANSACTION_SPREAD_RATE.multiply(new BigDecimal((blockPO.getBody().getTransactions().size()-1)+"")));
         for (TransactionPO transaction : blockPO.getBody().getTransactions()) {
@@ -120,4 +126,5 @@ public class TransactionExecutor {
         }
         calculationService.updateTOTAL_TRANSACTION_NUM(new BigInteger(blockPO.getBody().getTransactions().size()+""));
     }
+
 }

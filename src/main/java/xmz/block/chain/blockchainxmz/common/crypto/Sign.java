@@ -89,7 +89,6 @@ public class Sign {
 	 * @return
 	 */
 	public static PrivateKey privateKeyFromBigInteger(BigInteger privateKeyValue) throws Exception {
-
 		ECParameterSpec ecSpec = ECNamedCurveTable.getParameterSpec(CryptoConstants.EC_PARAM_SPEC);
 		ECPrivateKeySpec keySpec = new ECPrivateKeySpec(privateKeyValue, ecSpec);
 		Security.addProvider(new BouncyCastleProvider());

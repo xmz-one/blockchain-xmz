@@ -29,8 +29,11 @@ public class XMZConfig {
     /**
      * 单笔交易费率
      */
+    //单笔最低手续费
     public static final BigDecimal TRANSACTION_LOW_RATE = Convert.toWei("0.5",Convert.Unit.ETHER);
+    //浮动手续费
     public static final BigDecimal TRANSACTION_SPREAD_RATE = Convert.toWei("0.05",Convert.Unit.ETHER);
+    //当前手续费
     public static BigDecimal TRANSACTION_RATE = Convert.toWei("0.5",Convert.Unit.ETHER);
     /**
      * 数据存储地址

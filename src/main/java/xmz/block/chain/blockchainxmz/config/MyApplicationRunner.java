@@ -15,8 +15,6 @@ import java.io.File;
 public class MyApplicationRunner implements ApplicationRunner {
 
     static Logger logger = LoggerFactory.getLogger(MyApplicationRunner.class);
-
-
     @Autowired
     private WalletService walletService;
     @Autowired
@@ -30,6 +28,8 @@ public class MyApplicationRunner implements ApplicationRunner {
             lockFile.createNewFile();
             AccountPO minerAccount = walletService.minierAccount();
             accountDB.putMinierAccount(minerAccount);
+            //暂停数据渲染，让矿工输出挖矿地址和私钥
+//            Thread.sleep(1000000);
         }
         logger.error("初始化成功 !");
     }

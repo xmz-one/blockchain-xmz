@@ -10,6 +10,7 @@ import xmz.block.chain.blockchainxmz.common.crypto.Keys;
 import xmz.block.chain.blockchainxmz.common.crypto.Sign;
 import xmz.block.chain.blockchainxmz.common.utils.Convert;
 import xmz.block.chain.blockchainxmz.common.utils.JsonVo;
+import xmz.block.chain.blockchainxmz.common.utils.Numeric;
 import xmz.block.chain.blockchainxmz.common.utils.PageUtil;
 import xmz.block.chain.blockchainxmz.config.XMZConfig;
 import xmz.block.chain.blockchainxmz.common.enums.TransactionStatusEnum;
@@ -50,7 +51,7 @@ public class TransactionService {
                 jsonVo.setMessage("Illegal address format !");
                 return jsonVo;
             }
-            if ((System.currentTimeMillis() - transactionVO.getTimestamp()) > (20 * 1000) || (System.currentTimeMillis() - transactionVO.getTimestamp()) < 0) {
+            if ((System.currentTimeMillis() - transactionVO.getTimestamp()) > (60 * 1000) || (System.currentTimeMillis() - transactionVO.getTimestamp()) < 0) {
                 jsonVo = JsonVo.fail();
                 jsonVo.setMessage("The deal is no longer valid !");
                 return jsonVo;
@@ -70,7 +71,7 @@ public class TransactionService {
                 jsonVo.setMessage("Invalid transaction amount !");
                 return jsonVo;
             }
-            if (Sign.verify(Keys.publicKeyDecode(XMZConfig.SIGNATURE_VERIFICATION_VECTOR + transactionVO.getPublicKey()), transactionVO.getSign(), transactionVO.toSignString())) {
+            if (!Sign.verify(Numeric.hexStringToByteArray(XMZConfig.SIGNATURE_VERIFICATION_VECTOR + transactionVO.getPublicKey()), transactionVO.getSign(), transactionVO.toSignString())) {
                 return JsonVo.instance(JsonVo.CODE_FAIL, " Transaction signature error");
             }
             String from = Keys.getAddress(transactionVO.getPublicKey());
@@ -178,7 +179,6 @@ public class TransactionService {
         jsonVo = JsonVo.success();
         jsonVo.setItem(pageVO);
         return jsonVo;
-
     }
 
     /**

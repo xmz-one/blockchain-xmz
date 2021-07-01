@@ -26,7 +26,6 @@ public class WalletService {
 
     /**
      * 初始化挖矿账户和黑洞地址
-     *
      * @return
      * @throws Exception
      */
@@ -58,5 +57,4 @@ public class WalletService {
         jsonVo.setItem(accountPO.get().getBalance());
         return jsonVo;
     }
-
 }

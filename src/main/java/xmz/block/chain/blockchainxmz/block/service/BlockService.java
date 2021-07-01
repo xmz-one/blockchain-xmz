@@ -63,15 +63,15 @@ public class BlockService {
             jsonVo.setMessage("No mining !");
             return jsonVo;
         }
-        List<String> indexList=new ArrayList<>();
-        for (int i = optional.get().getHeader().getIndex(); i >0 ; i--) {
-            indexList.add(i+"");
+        int page = pagePO.getPage();
+        int rows = pagePO.getRows();
+        List<String> stringList = new ArrayList<>();
+        for (int x = optional.get().getHeader().getIndex().intValue() - page * rows; x > optional.get().getHeader().getIndex().intValue() - (page + 1) * rows; x--) {//(page+1)*rows;x>page*rows;x--){
+            stringList.add(x + "");
         }
-        PageUtil<String> pageUtil=new PageUtil<>();
-        pageUtil.pageUtil(pagePO.getPage(),pagePO.getRows(),indexList);
-        List<BlockPO> blockPOS = blockDB.getAllBlock1000(pageUtil.getContent());
+        List<BlockPO> blockPOS = blockDB.getAllBlock1000(stringList);
         PageVO pageVO = new PageVO();
-        pageVO.setTotal(pageUtil.getTotalElements());
+        pageVO.setTotal(optional.get().getHeader().getIndex());
         pageVO.setData(blockPOS);
         jsonVo = JsonVo.success();
         jsonVo.setItem(pageVO);
@@ -99,7 +99,7 @@ public class BlockService {
             blockDB.putBlockLast(blockPO);
             blockDB.putBlockTxIndex(blockPO);
             logger.info("Find a New Block, {}", blockPO);
-            transactionExecutor.run(blockPO);
+            transactionExecutor.runs(blockPO);
         } catch (Exception e) {
             logger.error("区块链挖矿出现异常:{}", e);
         }
